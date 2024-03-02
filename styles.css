@@ -1,0 +1,223 @@
+@media (max-width: 600px) {
+    form {
+    width: 80%;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+header {
+    font-size: 24px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #000000;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    transform: translateY(2px)
+}
+
+#result {
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input:invalid {
+    border-color: #ff6347;
+}
+
+input:focus:invalid {
+    box-shadow: none;
+}
+
+#result {
+    background-color: #f9f9f9;
+    color: #333;
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+
+#result p {
+    margin-bottom: 8px;
+}
+
+#result h2 {
+    color: #007bff;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+button:active {
+    transform: translateY(2px)
+}
+
+#loanTypesSection,
+#currencySection {
+margin-top: 10px;
+}
+
+#loanTypesSection h2,
+#currencySection h2 {
+color: #007bff;
+}
+
+#loanTypesSection p,
+#currencySection p {
+color: #333;
+}
+
+select {
+width: 100%;
+padding: 8px;
+margin-top: 8px;
+margin-bottom: 16px;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+#loanTypesSection {
+border-top: 2px solid #ccc;
+}
+
+#currencySection {
+border-top: 2px solid #ccc;
+}
+
+#amortizationTable {
+    width: 100%;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+#amortizationTable table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#amortizationTable th, #amortizationTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#amortizationTable th {
+background-color: #007bff;
+    color: #fff;
+}
+
+#amortizationTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#amortizationTable tbody tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+#amortizationTable tbody tr.paid {
+    text-decoration: line-through;
+    background-color: #5fdf5b; 
+    color: #000000;
+}

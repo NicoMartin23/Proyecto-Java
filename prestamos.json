@@ -1,0 +1,25 @@
+[
+    {
+    "id": 1,
+    "montoPrestamo": 10000,
+    "plazoPrestamo": 12,
+    "tipoPrestamo": "hipotecario",
+    "moneda": "usd"
+},
+{
+    "id": 2,
+    "montoPrestamo": 15000,
+    "tasaInteres": 6,
+    "plazoPrestamo": 24,
+    "tipoPrestamo": "personal",
+    "moneda": "eur"
+},
+{
+    "id": 3,
+    "montoPrestamo": 20000,
+    "tasaInteres": 7,
+    "plazoPrestamo": 36,
+    "tipoPrestamo": "automotriz",
+    "moneda": "ars"
+}
+]

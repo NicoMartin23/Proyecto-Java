@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Préstamos Hipotecarios</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Simulador de Préstamos Hipotecarios</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" @click="mostrarInicio">Inicio</a></li>
+                    <li><a href="#" @click="mostrarTiposPrestamos">Tipos de Préstamos</a></li>
+                    <li><a href="#" @click="mostrarMoneda">Moneda</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section v-if="mostrarTiposPrestamo" id="loanTypesSection">
+                <h2>Tipos de Préstamos</h2>
+                <p>Aquí se mostrarán diferentes tipos de préstamos disponibles.</p>
+                <select id="loanTypes" v-model="tipoPrestamo">
+                    <option value="hipotecario">Préstamo Hipotecario</option>
+                    <option value="personal">Préstamo Personal</option>
+                    <option value="automotriz">Préstamo Automotriz</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </section>
+            <section v-if="mostrarMonedaSeleccion" id="currencySection">
+                <h2>Moneda</h2>
+                <p>Elige la moneda para los cálculos.</p>
+                <select id="currency" v-model="moneda">
+                    <option value="usd">Dólares estadounidenses (USD)</option>
+                    <option value="eur">Euros (EUR)</option>
+                    <option value="ars">Pesos argentinos (ARS)</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </section>
+            <form id="loanForm" @submit.prevent="calcularPrestamo">
+                <label for="loanAmount">Monto del préstamo:</label>
+                <input type="number" id="loanAmount" placeholder="Ingrese el monto del préstamo" required v-model="montoPrestamo"><br><br>
+
+                <label for="interestRate">Tasa de interés anual (%):</label>
+                <input type="number" id="interestRate" placeholder="Ingrese la tasa de interés" required v-model="tasaInteres"><br><br>
+
+                <label for="loanTerm">Plazo del préstamo (en años):</label>
+                <input type="number" id="loanTerm" placeholder="Ingrese el plazo en años" required v-model="plazoPrestamo"><br><br>
+
+                <button type="submit" id="calculateButton">Calcular</button>
+                <button type="button" @click="calcularAmortizacion" id="calculateAmortizationButton">Calcular Amortización</button>
+                <button type="button" @click="resetearFormulario" id="resetFormButton">Resetear Formulario</button>
+            </form>
+            
+            <div id="result">
+                <h2>Resultados</h2>
+                <p>Monto del préstamo: {{ currencySymbol }}{{ montoPrestamo }}</p>
+                <p>Tasa de interés anual: {{ tasaInteres }}%</p>
+                <p>Plazo del préstamo: {{ plazoPrestamo }} años</p>
+                <p>Pago mensual: {{ currencySymbol }}{{ pagoMensual.toFixed(2) }}</p>
+                <p>Pago total: {{ currencySymbol }}{{ pagoTotal.toFixed(2) }}</p>
+                <p>{{ tipoPrestamoInfo }}</p>
+            </div>
+            <div id="currencyDetails">{{ currencyDetails }}</div>
+
+            <table id="amortizationTable" v-show="mostrarTablaAmortizacion">
+                <thead>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Pago Mensual</th>
+                        <th>Principal</th>
+                        <th>Interés</th>
+                        <th>Saldo Restante</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(entry, index) in tablaAmortizacion" :key="index" @click="marcarComoPagado(index)" :class="{ 'paid': entry.paid }">
+                        <td>{{ entry.month }}</td>
+                        <td>{{ currencySymbol }}{{ entry.monthlyPayment }}</td>
+                        <td>{{ currencySymbol }}{{ entry.principal }}</td>
+                        <td>{{ currencySymbol }}{{ entry.interest }}</td>
+                        <td>{{ currencySymbol }}{{ entry.remainingBalance }}</td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+

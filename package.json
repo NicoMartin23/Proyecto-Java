@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "sweetalert2": "^11.10.5",
+    "vuetify": "^3.5.6"
+  }
+}
